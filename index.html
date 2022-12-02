@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Padding Margin Body
+        const body = document.querySelector("body")
+
+        body.style.margin = 0
+        body.style.padding = 0
+
+        // App
+        const app = document.getElementById("app")
+
+        app.style.minHeight = "100vh"
+        app.style.display = "flex"
+        app.style.flexDirection = "column"
+        app.style.justifyContent = "space-between"
+
+        // Navbar
+        const nav = document.createElement("nav")
+        const titreNav = document.createElement("h3")
+
+        titreNav.innerText = "Titre"
+        titreNav.style.margin = 0
+        titreNav.style.paddingLeft = "20px"
+        nav.style.backgroundColor = "red"
+        nav.style.height = "50px"
+        nav.style.width = "100vw"
+        nav.style.display = "flex"
+        nav.style.alignItems = "center"
+        nav.style.marginBottom = "20px"
+
+        nav.appendChild(titreNav)
+
+        app.appendChild(nav)
+
+        // Main
+        const main = document.createElement("main")
+
+        main.style.marginBottom = "20px"
+        main.style.minHeight = "calc(100vh-(50px+50px))"
+        main.style.display = "flex"
+        main.style.flexDirection = "column"
+        main.style.justifyContent = "start"
+        main.style.alignItems = "center"
+
+        app.appendChild(main)
+
+        // IMG background
+        const img = document.createElement("img")
+
+        img.src = "Image/Wallpaper.jpg"
+        img.alt = "Jolie Wallpaper"
+        img.style.width = "100vw"
+        img.style.marginBottom = "20px"
+
+        main.appendChild(img)
+
+        // Card Bouton
+        const containerBtn = document.createElement("div")
+        const titleBtn = document.createElement("h1")
+        const paraBtn = document.createElement("p")
+        const btn = document.createElement("button")
+
+        titleBtn.innerText = "Bonjour !"
+        titleBtn.style.margin = "0"
+        paraBtn.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam venenatis lectus, quis sollicitudin velit elementum sodales. Maecenas pellentesque tortor."
+        btn.innerText = "Envoyer"
+        containerBtn.style.display = "flex"
+        containerBtn.style.flexDirection = "column"
+        containerBtn.style.alignItems = "center"
+        containerBtn.style.backgroundColor = "blue"
+        containerBtn.style.width = "60vw"
+        containerBtn.style.textAlign = "center"
+        containerBtn.style.margin = "0 20px"
+        containerBtn.style.padding = "20px"
+        containerBtn.style.marginBottom = "20px"
+        containerBtn.style.borderRadius = "20px"
+
+        containerBtn.appendChild(titleBtn)
+        containerBtn.appendChild(paraBtn)
+        containerBtn.appendChild(btn)
+
+        main.appendChild(containerBtn)
+
+        // Articles
+        const containerArticle = document.createElement("div")
+        const article1 = document.createElement("article")
+        const article2 = document.createElement("article")
+        const articleTxt1 = document.createElement("div")
+        const articleTxt2 = document.createElement("div")
+        const articleImg1 = document.createElement("img")
+        const articleImg2 = document.createElement("img")
+        const articleH31 = document.createElement("h3")
+        const articleH32 = document.createElement("h3")
+        const articlePara1 = document.createElement("p")
+        const articlePara2 = document.createElement("p")
+
+        articleImg1.src = "Image/Wallpaper.jpg"
+        articleImg1.alt = "Jolie Wallpaper"
+        articleImg1.style.width = "30vw"
+        articleH31.innerText = "C'est beau!"
+        articlePara1.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam venenatis lectus, quis sollicitudin velit elementum sodales. Maecenas pellentesque tortor."
+
+        articleTxt1.appendChild(articleH31)
+        articleTxt1.appendChild(articlePara1)
+        article1.appendChild(articleImg1)
+        article1.appendChild(articleTxt1)
+
+        articleImg2.src = "Image/Wallpaper.jpg"
+        articleImg2.alt = "Jolie Wallpaper"
+        articleImg2.style.width = "30vw"
+        articleH32.innerText = "C'est toujours beau!"
+        articlePara2.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam venenatis lectus, quis sollicitudin velit elementum sodales. Maecenas pellentesque tortor."
+
+        articleTxt2.appendChild(articleH32)
+        articleTxt2.appendChild(articlePara2)
+        article2.appendChild(articleTxt2)
+        article2.appendChild(articleImg2)
+
+        article1.style.display = "flex"
+        article1.style.justifyContent = "center"
+        article1.style.alignItems = "center"
+        article1.style.textAlign = "center"
+        article2.style.display = "flex"
+        article2.style.justifyContent = "center"
+        article2.style.alignItems = "center"
+        article2.style.textAlign = "center"
+        containerArticle.style.width = "70vw"
+
+        containerArticle.appendChild(article1)
+        containerArticle.appendChild(article2)
+
+        main.appendChild(containerArticle)
+
+        // Footer
+        const footer = document.createElement("footer")
+        const titreFooter = document.createElement("h3")
+
+        titreFooter.innerText = "Titre"
+        titreFooter.style.margin = 0
+        titreFooter.style.paddingRight = "20px"
+        footer.style.backgroundColor = "red"
+        footer.style.height = "50px"
+        footer.style.width = "100vw"
+        footer.style.display = "flex"
+        footer.style.justifyContent = "end"
+        footer.style.alignItems = "center"
+
+        footer.appendChild(titreFooter)
+        app.appendChild(footer)
+
+    </script>
+</body>
+
+</html>
