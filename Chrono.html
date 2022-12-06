@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        const app = document.getElementById("app")
+        const p = document.createElement("p")
+        const d = new Date()
+        let h = d.getHours()
+        let m = d.getMinutes()
+        let s = d.getSeconds(15)
+        let time = h + ":" + m + ":" + s
+        let t = 0
+        setInterval(() => {
+            p.innerHTML = t++
+        }, 1000)
+        p.innerText = time
+        app.appendChild(p)
+    </script>
+</body>
+
+</html>

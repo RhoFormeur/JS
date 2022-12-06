@@ -15,30 +15,23 @@
         // Padding Margin Body
         const body = document.querySelector("body")
 
-        body.style.margin = 0
-        body.style.padding = 0
+        body.style.margin = "0px"
+        body.style.padding = "0px"
 
         // App
         const app = document.getElementById("app")
-
-        app.style.minHeight = "100vh"
-        app.style.display = "flex"
-        app.style.flexDirection = "column"
-        app.style.justifyContent = "space-between"
 
         // Navbar
         const nav = document.createElement("nav")
         const titreNav = document.createElement("h3")
 
         titreNav.innerText = "Titre"
-        titreNav.style.margin = 0
-        titreNav.style.paddingLeft = "20px"
         nav.style.backgroundColor = "red"
-        nav.style.height = "50px"
-        nav.style.width = "100vw"
+        nav.style.height = "65px"
         nav.style.display = "flex"
         nav.style.alignItems = "center"
-        nav.style.marginBottom = "20px"
+        nav.style.paddingLeft="20px"
+        nav.style.margin = "0px 0px 20px 0px"
 
         nav.appendChild(titreNav)
 
@@ -48,7 +41,6 @@
         const main = document.createElement("main")
 
         main.style.marginBottom = "20px"
-        main.style.minHeight = "calc(100vh-(50px+50px))"
         main.style.display = "flex"
         main.style.flexDirection = "column"
         main.style.justifyContent = "start"
@@ -57,14 +49,17 @@
         app.appendChild(main)
 
         // IMG background
+        const containerImg = document.createElement("div")
         const img = document.createElement("img")
 
         img.src = "Image/Wallpaper.jpg"
         img.alt = "Jolie Wallpaper"
-        img.style.width = "100vw"
-        img.style.marginBottom = "20px"
+        img.style.width = "100%"
+        containerImg.style.margin = "0px 0px 20px 0px"
 
-        main.appendChild(img)
+        containerImg.appendChild(img)
+
+        main.appendChild(containerImg)
 
         // Card Bouton
         const containerBtn = document.createElement("div")
@@ -73,7 +68,7 @@
         const btn = document.createElement("button")
 
         titleBtn.innerText = "Bonjour !"
-        titleBtn.style.margin = "0"
+        titleBtn.style.margin = "0px"
         paraBtn.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam venenatis lectus, quis sollicitudin velit elementum sodales. Maecenas pellentesque tortor."
         btn.innerText = "Envoyer"
         containerBtn.style.display = "flex"
@@ -148,18 +143,17 @@
         const titreFooter = document.createElement("h3")
 
         titreFooter.innerText = "Titre"
-        titreFooter.style.margin = 0
-        titreFooter.style.paddingRight = "20px"
+        footer.style.paddingRight="20px"
         footer.style.backgroundColor = "red"
-        footer.style.height = "50px"
-        footer.style.width = "100vw"
+        footer.style.height = "65px"
         footer.style.display = "flex"
-        footer.style.justifyContent = "end"
+        footer.style.justifyContent = "flex-end"
         footer.style.alignItems = "center"
 
         footer.appendChild(titreFooter)
         app.appendChild(footer)
 
+        
     </script>
 </body>
 
