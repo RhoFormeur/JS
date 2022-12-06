@@ -22,48 +22,74 @@ app.style.display = "flex"
 app.style.flexWrap = "wrap"
 app.style.justifyContent = "center"
 
-arr.map((i) => {
-    const div = document.createElement("div")
-    const p = document.createElement("p")
-    p.innerText = i.name + " " + i.nbHabitant
-    p.style.padding = "0 20px"
-    p.style.margin = "10px"
-    div.style.border = "solid 2px black"
-    div.style.borderRadius = "40px"
-    div.style.margin = "5px"
-    div.style.display = "flex"
-    div.appendChild(p)
-    app.appendChild(div)
-})
+function addCard(table){
+    table.map((i) => {
+        const div = document.createElement("div")
+        const p = document.createElement("p")
+        p.innerText = i.name + " = " + i.nbHabitant
+        p.style.padding = "0 20px"
+        p.style.margin = "10px"
+        div.style.border = "solid 2px black"
+        div.style.borderRadius = "40px"
+        div.style.margin = "5px"
+        div.style.display = "flex"
+        div.appendChild(p)
+        app.appendChild(div)
+    })
+    return
+}
+addCard(arr)
 
 arr.sort((a, b) => a.name.localeCompare(b.name))
 
-arr.map((i) => {
-    const div = document.createElement("div")
-    const p = document.createElement("p")
-    p.innerText = i.name + " " + i.nbHabitant
-    p.style.padding = "0 20px"
-    p.style.margin = "10px"
-    div.style.border = "solid 2px black"
-    div.style.borderRadius = "40px"
-    div.style.margin = "5px"
-    div.style.display = "flex"
-    div.appendChild(p)
-    app.appendChild(div)
-})
+addCard(arr)
 
 arr.sort((a,b)=> a.nbHabitant-b.nbHabitant)
 
-arr.map((i) => {
-    const div = document.createElement("div")
-    const p = document.createElement("p")
-    p.innerText = i.name + " " + i.nbHabitant
-    p.style.padding = "0 20px"
-    p.style.margin = "10px"
-    div.style.border = "solid 2px black"
-    div.style.borderRadius = "40px"
-    div.style.margin = "5px"
-    div.style.display = "flex"
-    div.appendChild(p)
-    app.appendChild(div)
-})
+addCard(arr)
+
+// arr.map((i) => {
+//     const div = document.createElement("div")
+//     const p = document.createElement("p")
+//     p.innerText = i.name + " = " + i.nbHabitant
+//     p.style.padding = "0 20px"
+//     p.style.margin = "10px"
+//     div.style.border = "solid 2px black"
+//     div.style.borderRadius = "40px"
+//     div.style.margin = "5px"
+//     div.style.display = "flex"
+//     div.appendChild(p)
+//     app.appendChild(div)
+// })
+
+// arr.sort((a, b) => a.name.localeCompare(b.name))
+
+// arr.map((i) => {
+//     const div = document.createElement("div")
+//     const p = document.createElement("p")
+//     p.innerText = i.name + " = " + i.nbHabitant
+//     p.style.padding = "0 20px"
+//     p.style.margin = "10px"
+//     div.style.border = "solid 2px black"
+//     div.style.borderRadius = "40px"
+//     div.style.margin = "5px"
+//     div.style.display = "flex"
+//     div.appendChild(p)
+//     app.appendChild(div)
+// })
+
+// arr.sort((a,b)=> a.nbHabitant-b.nbHabitant)
+
+// arr.map((i) => {
+//     const div = document.createElement("div")
+//     const p = document.createElement("p")
+//     p.innerText = i.name + " = " + i.nbHabitant
+//     p.style.padding = "0 20px"
+//     p.style.margin = "10px"
+//     div.style.border = "solid 2px black"
+//     div.style.borderRadius = "40px"
+//     div.style.margin = "5px"
+//     div.style.display = "flex"
+//     div.appendChild(p)
+//     app.appendChild(div)
+// })
