@@ -3,7 +3,9 @@ body.style.margin = 0
 body.style.padding = 0
 
 const app = document.getElementById("app")
+app.style.width = "100vw"
 
+// Array
 const arr = [
     { id: 0, name: "Paris", nbHabitant: 10858852 },
     { id: 1, name: "Berlin", nbHabitant: 3748148 },
@@ -17,12 +19,15 @@ const arr = [
     { id: 9, name: "Dublin", nbHabitant: 554554 },
 ]
 
-app.style.width = "100vw"
-app.style.display = "flex"
-app.style.flexWrap = "wrap"
-app.style.justifyContent = "center"
+// Fonction ajout card
+function addCard(table) {
+    const container = document.createElement("div")
+    container.style.marginBottom = "20px"
+    container.style.display = "flex"
+    container.style.flexWrap = "wrap"
+    container.style.justifyContent = "center"
 
-function addCard(table){
+    // Mapper le tableau
     table.map((i) => {
         const div = document.createElement("div")
         const p = document.createElement("p")
@@ -34,62 +39,23 @@ function addCard(table){
         div.style.margin = "5px"
         div.style.display = "flex"
         div.appendChild(p)
-        app.appendChild(div)
+        container.appendChild(div)
     })
-    return
+
+    app.appendChild(container)
 }
+
+// Ajout d'une card
 addCard(arr)
 
+// Trier le tableau
 arr.sort((a, b) => a.name.localeCompare(b.name))
 
+// ajout d'une card
 addCard(arr)
 
-arr.sort((a,b)=> a.nbHabitant-b.nbHabitant)
+// Trier le tableau
+arr.sort((a, b) => a.nbHabitant - b.nbHabitant)
 
+// ajout d'une card
 addCard(arr)
-
-// arr.map((i) => {
-//     const div = document.createElement("div")
-//     const p = document.createElement("p")
-//     p.innerText = i.name + " = " + i.nbHabitant
-//     p.style.padding = "0 20px"
-//     p.style.margin = "10px"
-//     div.style.border = "solid 2px black"
-//     div.style.borderRadius = "40px"
-//     div.style.margin = "5px"
-//     div.style.display = "flex"
-//     div.appendChild(p)
-//     app.appendChild(div)
-// })
-
-// arr.sort((a, b) => a.name.localeCompare(b.name))
-
-// arr.map((i) => {
-//     const div = document.createElement("div")
-//     const p = document.createElement("p")
-//     p.innerText = i.name + " = " + i.nbHabitant
-//     p.style.padding = "0 20px"
-//     p.style.margin = "10px"
-//     div.style.border = "solid 2px black"
-//     div.style.borderRadius = "40px"
-//     div.style.margin = "5px"
-//     div.style.display = "flex"
-//     div.appendChild(p)
-//     app.appendChild(div)
-// })
-
-// arr.sort((a,b)=> a.nbHabitant-b.nbHabitant)
-
-// arr.map((i) => {
-//     const div = document.createElement("div")
-//     const p = document.createElement("p")
-//     p.innerText = i.name + " = " + i.nbHabitant
-//     p.style.padding = "0 20px"
-//     p.style.margin = "10px"
-//     div.style.border = "solid 2px black"
-//     div.style.borderRadius = "40px"
-//     div.style.margin = "5px"
-//     div.style.display = "flex"
-//     div.appendChild(p)
-//     app.appendChild(div)
-// })
