@@ -82,8 +82,8 @@ function card(jsonObj) {
         const a = document.createElement(`a`)
         const img = document.createElement(`img`)
         const posterPath = i.poster_path
-        img.setAttribute(`id`, i.id)
-        img.setAttribute(`type`, i.media_type)
+        // img.setAttribute(`id`, i.id)
+        // img.setAttribute(`type`, i.media_type)
         img.src = `https://image.tmdb.org/t/p/original` + posterPath
         img.style.width = `200px`
         img.addEventListener(`click`, () => buildArticle(i.media_type, i.id))
@@ -106,24 +106,33 @@ function fetchUrl(url) {
 }
 
 function buildArticle(type, id) {
-    const url = ``
+    console.log(id);
+    console.log(type);
+    let url = ``
+    if (type === `tv`) {
+        url = `https://api.themoviedb.org/3/tv/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+        fetchUrl(url)
+    } else if (type === `movie`) {
+        url = `https://api.themoviedb.org/3/movie/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+        fetchUrl(url)
+    }
     // const id = e.target.id
     // console.log(`event`,e.target)
     // const type = e.target.type
-    console.log(`id`, id)
-    console.log(`type`, type);
-    switch (type) {
-        case type == `tv`:
-            url = `https://api.themoviedb.org/3/tv/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
-            console.log(`prefetch`, url);
-            fetchUrl(url)
-            break
-        case type == `movie`:
-            url = `https://api.themoviedb.org/3/movie/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
-            console.log(`prefetch`, url);
-            fetchUrl(url)
-            break
-    }
+    // console.log(`id`, id)
+    // console.log(`type`, type);
+    // switch (url) {
+    //     case type === `tv`:
+    //         url = `https://api.themoviedb.org/3/tv/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+    //         console.log(`prefetch`, url);
+    //         fetchUrl(url)
+    //         break
+    //     case type === `movie`:
+    //         url = `https://api.themoviedb.org/3/movie/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+    //         console.log(`prefetch`, url);
+    //         fetchUrl(url)
+    //         break
+    // }
 
 }
 
@@ -135,18 +144,32 @@ function affichage(jsonObj) {
     img.src = `https://image.tmdb.org/t/p/original` + jsonObj[`poster_path`]
     img.style.width = `50vw`
     const titre = document.createElement(`p`)
-    const genre = document.createElement(`p`)
+    const divGenre = document.createElement(`div`)
     const resume = document.createElement(`p`)
     const rate = document.createElement(`p`)
-
+    const nbGenre = jsonObj.genres.length
+    const pGenre = document.createElement(`p`)
+    pGenre.innerText=`Genres :`
+    pGenre.style.marginRight = `5px`
+    divGenre.appendChild(pGenre)
+    divGenre.style.display = `flex`
+    console.log(nbGenre);
     titre.innerText = `Titre : ` + jsonObj[`name`]
+
+    for (i = 0; i < nbGenre; i++) {
+        const p = document.createElement(`p`)
+        p.innerText = jsonObj[`genres`][i][`name`]
+        p.style.marginRight = `5px`
+        divGenre.appendChild(p)
+    }
+    console.log(divGenre.innerText);
     // genre.innerText = jsonObj[`genres`][0][`name`] + `, ` + jsonObj[`genres`][1][`name`] + `, ` + jsonObj[`genres`][2][`name`]
     resume.innerText = `Résumé : ` + jsonObj[`overview`]
     rate.innerText = `Note : ` + jsonObj[`vote_average`]
 
     divImg.appendChild(img)
     divInfo.appendChild(titre)
-    divInfo.appendChild(genre)
+    divInfo.appendChild(divGenre)
     divInfo.appendChild(resume)
     divInfo.appendChild(rate)
     app.appendChild(divImg)
