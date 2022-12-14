@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+</head>
+
+<body>
+    <form action="submit" onsubmit="checkForm(event)">
+        <div>
+            <label for="firstname">Prénom :</label>
+            <input type="text" name="firstname" id="firstname">
+            <label for="lastname">Nom :</label>
+            <input type="text" name="lastname" id="lastname">
+            <p>1 Majuscule suivi d'au moins une minuscule</p>
+        </div>
+        <div>
+            <label for="dateofbirth">Date de naissance :</label>
+            <input type="text" name="dateofbirth" id="dateofbirth">
+            <p>Format de la date de naissance : JJ-MM-AA</p>
+        </div>
+        <div>
+            <label for="mail">Adresse mail :</label>
+            <input type="text" name="mail" id="mail">
+            <label for="confirmmail">Confirmer l'adresse mail :</label>
+            <input type="text" name="confirmmail" id="confirmmail">
+        </div>
+        <div>
+            <label for="mesletter">Inscription à la newsletter :</label>
+            <input type="checkbox" name="newsletter" id="newsletter"> 
+        </div>
+
+        <button type="submit">Envoyer</button>
+    </form>
+    <script src="regex.js"></script>
+</body>
+
+</html>

@@ -26,8 +26,6 @@ function filtrer() {
     const filter = inputSearch.value.toUpperCase()
     const ul = document.getElementById(`cardList`)
     const li = ul.getElementsByTagName(`li`)
-    console.log(li.length);
-    console.log(filter);
     for (i = 0; i < li.length; i++) {
         const h3 = li[i].getElementsByTagName(`h3`)[0]
         const txtvalue = h3.textContent || h3.innerText
@@ -44,8 +42,17 @@ function fetchTable(url) {
     fetch(url)
         .then(res => res.json())
         .then(res => {
-            console.log(`fetch`, res)
             card(res[`results`])
+        })
+        .catch(err => console.log(err))
+}
+
+// Requete details article
+function fetchArticle(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            affichage(res)
         })
         .catch(err => console.log(err))
 }
@@ -54,6 +61,18 @@ function fetchTable(url) {
 function closeArticle() {
     cardContainer.innerHTML = ``
     fetchTable(fullURL)
+}
+
+// Creatrion de l'URL en fonction de l'article
+function buildUrl(type, id) {
+    let url = ``
+    if (type === `tv`) {
+        url = `https://api.themoviedb.org/3/tv/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+        fetchArticle(url)
+    } else if (type === `movie`) {
+        url = `https://api.themoviedb.org/3/movie/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
+        fetchArticle(url)
+    }
 }
 
 // Création des cards en mappant le tableau
@@ -81,33 +100,7 @@ function card(jsonObj) {
     })
 }
 
-// Requete details article
-function fetchArticle(url) {
-    fetch(url)
-        .then(res => res.json())
-        .then(res => {
-            console.log(`fetch`, res);
-            affichage(res)
-        })
-        .catch(err => console.log(err))
-}
-
-// Creatrion de l'URL en fonction de l'article
-function buildUrl(type, id) {
-    console.log(id);
-    console.log(type);
-    let url = ``
-    if (type === `tv`) {
-        url = `https://api.themoviedb.org/3/tv/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
-        fetchArticle(url)
-    } else if (type === `movie`) {
-        url = `https://api.themoviedb.org/3/movie/` + id + `?api_key=de915367cc4815667c4f4866d61485af&language=fr-FR`
-        fetchArticle(url)
-    }
-}
-
-
-// Reset page pour afficher un article
+// Reset + Affichage article
 function affichage(jsonObj,) {
     cardContainer.innerHTML = ``
     const divImg = document.createElement(`div`)
@@ -130,7 +123,6 @@ function affichage(jsonObj,) {
     pGenre.style.marginRight = `5px`
     divGenre.appendChild(pGenre)
     divGenre.style.display = `flex`
-    console.log(nbGenre);
 
     // Different selon le type d'article pour recuperer le nom
     if (jsonObj[`name`] === undefined) {
@@ -147,7 +139,6 @@ function affichage(jsonObj,) {
         divGenre.appendChild(p)
     }
 
-    console.log(divGenre.innerText);
     resume.innerText = `Résumé : ` + jsonObj[`overview`]
     rate.innerText = `Note : ` + jsonObj[`vote_average`]
 

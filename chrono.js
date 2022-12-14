@@ -39,16 +39,10 @@ const btnReset = document.createElement("button")
 
 btnStart.innerText = "Start"
 btnStart.setAttribute("onclick", "start()")
-// btnStart.setAttribute("type", "button")
-// btnStart.setAttribute("id", "btnStart")
 btnStop.innerText = "Stop"
 btnStop.setAttribute("onclick", "stop()")
-// btnStop.setAttribute("type", "button")
-// btnStop.setAttribute("id", "btnStop")
 btnReset.innerText = "Reset"
 btnReset.setAttribute("onclick", "reset()")
-// btnReset.setAttribute("type", "button")
-// btnReset.setAttribute("id", "btnReset")
 
 containerBtn.appendChild(btnStart)
 containerBtn.appendChild(btnStop)
@@ -56,10 +50,13 @@ containerBtn.appendChild(btnReset)
 app.appendChild(containerBtn)
 
 let chrono = {}
-
+let play = 0
 // Lancement chrono
 function start() {
-    chrono = setInterval(timer, 10)
+    if (play == 0){
+        chrono = setInterval(timer, 10)
+        play = 1
+    }
 }
 
 // Reset des valeurs
@@ -75,6 +72,7 @@ function reset() {
 // Fonction pour stopper l'interval
 function stop() {
     clearInterval(chrono)
+    play = 0
 }
 
 // Fonction timer
